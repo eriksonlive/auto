@@ -1,0 +1,242 @@
+{
+  "name": "Login + sede + guardar + ir a medicos",
+  "url": "https://sistemasintegrales.sgmsalud.com.co/",
+  "steps": [
+    {
+      "type": "goto",
+      "waitUntil": "load",
+      "timeoutMs": 60000
+    },
+    {
+      "type": "waitForSelector",
+      "selector": "#password",
+      "frame": "#iframeLogin",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "fill",
+      "selector": "#username",
+      "value": "frente",
+      "frame": "#iframeLogin",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "fill",
+      "selector": "#password",
+      "value": "TecINsgm2026*",
+      "frame": "#iframeLogin",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "click",
+      "selector": "button.btn-login",
+      "frame": "#iframeLogin",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "wait",
+      "ms": 3000
+    },
+    {
+      "type": "getFrameUrl",
+      "frame": "#iframeLogin",
+      "frameName": "main_window",
+      "saveAs": "mainUrl",
+      "timeoutMs": 45000
+    },
+    {
+      "type": "gotoFromOutput",
+      "key": "mainUrl",
+      "waitUntil": "load",
+      "timeoutMs": 60000
+    },
+    {
+      "type": "waitForSelector",
+      "selector": "#department",
+      "timeoutMs": 60000
+    },
+    {
+      "type": "select",
+      "selector": "#department",
+      "text": "SISTEMAS INTEGRALES EN SALUD OCUPACIONAL IPS",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "waitForOptions",
+      "selector": "#position",
+      "min": 1,
+      "timeoutMs": 30000
+    },
+    {
+      "type": "select",
+      "selector": "#position",
+      "text": "1",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "click",
+      "selector": "#saveDepartment",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "wait",
+      "ms": 2500
+    },
+    {
+      "type": "gotoMenuRouteFromMainUrl",
+      "fromKey": "mainUrl",
+      "action": "listado_clientes",
+      "level": "Financiero--Clientes--Listado de clientes",
+      "saveAs": "clientesUrl",
+      "waitUntil": "domcontentloaded",
+      "timeoutMs": 60000,
+      "waitMs": 2500
+    },
+    {
+      "type": "waitForSelector",
+      "selector": "table",
+      "timeoutMs": 60000
+    },
+    {
+      "type": "screenshotSelector",
+      "selector": "table",
+      "name": "lista-medicos"
+    },
+    {
+      "type": "wait",
+      "ms": 2500
+    },
+    {
+      "type": "waitForSelector",
+      "selector": "input[aria-label=\"filter data by RAZÓN SOCIAL\"]",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "fill",
+      "selector": "input[aria-label=\"filter data by RAZÓN SOCIAL\"]",
+      "value": "prueba",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "wait",
+      "ms": 1500
+    },
+    {
+      "type": "clickLinkInRow",
+      "rowText": "EMPRESA PRUEBAS SGM",
+      "linkAriaLabel": "Precios",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "wait",
+      "ms": 1500
+    },
+    {
+      "type": "screenshotSelector",
+      "selector": "table",
+      "name": "lista-precios"
+    },
+    {
+      "type": "wait",
+      "ms": 2500
+    },
+    {
+      "type": "click",
+      "selector": "button[title=\"Agregar servicio\"]"
+    },
+    {
+      "type": "waitForSelector",
+      "selector": "[role=\"dialog\"]",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "screenshotSelector",
+      "selector": "[role=\"dialog\"]",
+      "name": "modal-agregar-grupo"
+    },
+    {
+      "type": "wait",
+      "ms": 1200
+    },
+    {
+      "type": "click",
+      "selector": "#downshift-simple-input",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "fill",
+      "selector": "#downshift-simple-input",
+      "value": "MD000005",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "waitForSelector",
+      "selector": "#downshift-simple-menu",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "wait",
+      "ms": 800
+    },
+    {
+      "type": "click",
+      "selector": "#downshift-simple-menu > *",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "wait",
+      "ms": 1200
+    },
+    {
+      "type": "fill",
+      "selector": "input[name=\"number_cliente\"]",
+      "value": "12345",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "fill",
+      "selector": "input[name=\"description_cliente\"]",
+      "value": "SERVICIO CLIENTE PRUEBA",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "fill",
+      "selector": "input[name=\"sellprice\"]",
+      "value": "50000",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "fill",
+      "selector": "input[name=\"discount\"]",
+      "value": "0",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "fill",
+      "selector": "input[name=\"curr\"]",
+      "value": "COP",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "fill",
+      "selector": "input[name=\"validfrom\"]",
+      "value": "2026-03-31",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "fill",
+      "selector": "input[name=\"validto\"]",
+      "value": "2026-12-31",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "waitForSelector",
+      "selector": "[role=\"dialog\"] button.MuiButton-containedSecondary",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "click",
+      "selector": "[role=\"dialog\"] button.MuiButton-containedSecondary"
+    }
+  ]
+}

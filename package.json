@@ -1,0 +1,14 @@
+{
+  "name": "autoia",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "run": "node src/run.js"
+  },
+  "dependencies": {
+    "@browserbasehq/stagehand": "^3.0.8",
+    "dotenv": "^17.2.3",
+    "playwright": "^1.57.0",
+    "zod": "^4.3.6"
+  }
+}

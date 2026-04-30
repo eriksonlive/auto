@@ -1,0 +1,78 @@
+{
+  "name": "Login y seleccion de sede anidada",
+  "url": "https://sistemasintegrales.sgmsalud.com.co/",
+  "steps": [
+    {
+      "waitUntil": "load",
+      "timeoutMs": 60000,
+      "type": "goto"
+    },
+    {
+      "timeoutMs": 30000,
+      "type": "waitForSelector",
+      "selector": "#password",
+      "frame": "#iframeLogin"
+    },
+    {
+      "timeoutMs": 30000,
+      "type": "fill",
+      "selector": "#username",
+      "value": "frente",
+      "frame": "#iframeLogin"
+    },
+    {
+      "timeoutMs": 30000,
+      "type": "fill",
+      "selector": "#password",
+      "value": "TecINsgm2026*",
+      "frame": "#iframeLogin"
+    },
+    {
+      "timeoutMs": 30000,
+      "type": "click",
+      "selector": "button.btn-login",
+      "frame": "#iframeLogin"
+    },
+    {
+      "timeoutMs": 30000,
+      "type": "getFrameUrl",
+      "frame": "main_window",
+      "frameName": "main_window",
+      "saveAs": "mainUrl"
+    },
+    {
+      "waitUntil": "load",
+      "timeoutMs": 60000,
+      "type": "gotoFromOutput",
+      "key": "mainUrl"
+    },
+    {
+      "timeoutMs": 30000,
+      "type": "waitForSelector",
+      "selector": "select[name='department']"
+    },
+    {
+      "timeoutMs": 30000,
+      "type": "select",
+      "selector": "select[name='department']",
+      "value": "1"
+    },
+    {
+      "timeoutMs": 30000,
+      "type": "select",
+      "selector": "select[name='sala']",
+      "value": "1"
+    },
+    {
+      "timeoutMs": 30000,
+      "type": "select",
+      "selector": "select[name='position']",
+      "value": "1"
+    },
+    {
+      "timeoutMs": 30000,
+      "type": "clickButtonByText",
+      "text": "Enviar"
+    }
+  ]
+}

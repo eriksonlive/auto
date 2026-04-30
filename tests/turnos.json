@@ -1,0 +1,149 @@
+{
+  "name": "Login + sede + guardar + asignar turno",
+  "url": "https://sistemasintegrales.sgmsalud.com.co/",
+  "steps": [
+    {
+      "type": "goto",
+      "waitUntil": "load",
+      "timeoutMs": 60000
+    },
+    {
+      "type": "waitForSelector",
+      "selector": "#password",
+      "frame": "#iframeLogin",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "fill",
+      "selector": "#username",
+      "value": "frente",
+      "frame": "#iframeLogin",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "fill",
+      "selector": "#password",
+      "value": "TecINsgm2026*",
+      "frame": "#iframeLogin",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "click",
+      "selector": "button.btn-login",
+      "frame": "#iframeLogin",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "wait",
+      "ms": 3000
+    },
+    {
+      "type": "getFrameUrl",
+      "frame": "#iframeLogin",
+      "frameName": "main_window",
+      "saveAs": "mainUrl",
+      "timeoutMs": 45000
+    },
+    {
+      "type": "gotoFromOutput",
+      "key": "mainUrl",
+      "waitUntil": "load",
+      "timeoutMs": 60000
+    },
+    {
+      "type": "waitForSelector",
+      "selector": "#department",
+      "timeoutMs": 60000
+    },
+    {
+      "type": "select",
+      "selector": "#department",
+      "text": "SISTEMAS INTEGRALES EN SALUD OCUPACIONAL IPS",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "waitForOptions",
+      "selector": "#position",
+      "min": 1,
+      "timeoutMs": 30000
+    },
+    {
+      "type": "select",
+      "selector": "#position",
+      "text": "1",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "click",
+      "selector": "#saveDepartment",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "wait",
+      "ms": 2500
+    },
+    {
+      "type": "gotoMenuRouteFromMainUrl",
+      "fromKey": "mainUrl",
+      "action": "frente_turnos",
+      "level": "Asistencial--Frente--Asignacion de turnos",
+      "saveAs": "turnosUrl",
+      "waitUntil": "domcontentloaded",
+      "timeoutMs": 60000,
+      "waitMs": 2500
+    },
+    {
+      "type": "waitForSelector",
+      "selector": "form",
+      "timeoutMs": 60000
+    },
+    {
+      "type": "screenshotSelector",
+      "selector": "form",
+      "name": "turnos-form"
+    },
+    {
+      "type": "wait",
+      "ms": 2500
+    },
+    {
+      "type": "waitForSelector",
+      "selector": "input[name=\"cedula\"]",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "fill",
+      "selector": "input[name=\"cedula\"]",
+      "value": "71000666",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "wait",
+      "ms": 1500
+    },
+    {
+      "type": "click",
+      "selector": "input[name=\"consultar_paciente\"]",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "wait",
+      "ms": 1500
+    },
+    {
+      "type": "select",
+      "selector": "#id_categoria",
+      "text": "GENERAL",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "click",
+      "selector": "a.btn.btn-info[href^=\"javascript:enviar(\"]",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "wait",
+      "ms": 1500
+    }
+  ]
+}

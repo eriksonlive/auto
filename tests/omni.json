@@ -1,0 +1,107 @@
+{
+  "name": "Login + sede + guardar + ir a medicos",
+  "url": "https://pruebasomnisalud2.sgmsalud.com.co/",
+  "steps": [
+    {
+      "type": "goto",
+      "waitUntil": "load",
+      "timeoutMs": 60000
+    },
+    {
+      "type": "waitForSelector",
+      "selector": "#password",
+      "frame": "#iframeLogin",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "fill",
+      "selector": "#username",
+      "value": "frente",
+      "frame": "#iframeLogin",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "fill",
+      "selector": "#password",
+      "value": "TecINsgm2026*",
+      "frame": "#iframeLogin",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "click",
+      "selector": "button.btn-login",
+      "frame": "#iframeLogin",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "wait",
+      "ms": 1500
+    },
+    {
+      "type": "getFrameUrl",
+      "frame": "#iframeLogin",
+      "frameName": "main_window",
+      "saveAs": "mainUrl"
+    },
+    {
+      "type": "gotoFromOutput",
+      "key": "mainUrl",
+      "waitUntil": "load",
+      "timeoutMs": 60000
+    },
+    {
+      "type": "waitForSelector",
+      "selector": "#department",
+      "timeoutMs": 60000
+    },
+    {
+      "type": "select",
+      "selector": "#department",
+      "text": "BOGOTA HEROES",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "waitForOptions",
+      "selector": "#position",
+      "min": 1,
+      "timeoutMs": 30000
+    },
+    {
+      "type": "select",
+      "selector": "#position",
+      "text": "1",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "click",
+      "selector": "#saveDepartment",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "wait",
+      "ms": 1500
+    },
+    {
+      "type": "gotoMedicosInMainFrame",
+      "fromKey": "mainUrl",
+      "saveAs": "medicosUrl",
+      "waitUntil": "domcontentloaded",
+      "timeoutMs": 60000,
+      "waitMs": 2500
+    },
+    {
+      "type": "waitForSelector",
+      "selector": "table",
+      "timeoutMs": 60000
+    },
+    {
+      "type": "screenshotSelector",
+      "selector": "table",
+      "name": "lista-medicos"
+    },
+    {
+      "type": "wait",
+      "ms": 1500
+    }
+  ]
+}

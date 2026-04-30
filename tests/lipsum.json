@@ -1,0 +1,19 @@
+{
+  "name": "Extraer título de Lipsum",
+  "url": "https://es.lipsum.com/",
+  "stagehand": {
+    "headless": true,
+    "model": "google/gemini-2.5-flash-lite"
+  },
+  "evidence": {
+    "screenshots": true,
+    "html": false
+  },
+  "steps": [
+    { "type": "goto", "waitUntil": "load" },
+    { "type": "screenshot", "name": "01-home" },
+    { "type": "extract", "prompt": "Dame el título de la página", "saveAs": "pageTitle" },
+    { "type": "wait", "ms": 1000 },
+    { "type": "screenshot", "name": "02-after-extract" }
+  ]
+}

@@ -1,0 +1,447 @@
+{
+  "name": "Generar Cita",
+  "url": "https://sistemasintegrales.sgmsalud.com.co/",
+  "steps": [
+    {
+      "type": "goto",
+      "waitUntil": "load",
+      "timeoutMs": 60000
+    },
+    {
+      "type": "waitForSelector",
+      "selector": "#password",
+      "frame": "#iframeLogin",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "fill",
+      "selector": "#username",
+      "value": "frente",
+      "frame": "#iframeLogin",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "fill",
+      "selector": "#password",
+      "value": "TecINsgm2026*",
+      "frame": "#iframeLogin",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "click",
+      "selector": "button.btn-login",
+      "frame": "#iframeLogin",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "wait",
+      "ms": 3000
+    },
+    {
+      "type": "getFrameUrl",
+      "frame": "#iframeLogin",
+      "frameName": "main_window",
+      "saveAs": "mainUrl",
+      "timeoutMs": 45000
+    },
+    {
+      "type": "gotoFromOutput",
+      "key": "mainUrl",
+      "waitUntil": "load",
+      "timeoutMs": 60000
+    },
+    {
+      "type": "waitForSelector",
+      "selector": "#department",
+      "timeoutMs": 60000
+    },
+    {
+      "type": "select",
+      "selector": "#department",
+      "text": "SISTEMAS INTEGRALES EN SALUD OCUPACIONAL IPS",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "waitForOptions",
+      "selector": "#position",
+      "min": 1,
+      "timeoutMs": 30000
+    },
+    {
+      "type": "select",
+      "selector": "#position",
+      "text": "1",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "click",
+      "selector": "#saveDepartment",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "wait",
+      "ms": 2500
+    },
+    {
+      "type": "gotoMenuRouteFromMainUrl",
+      "fromKey": "mainUrl",
+      "action": "agenda_turnos_frente",
+      "level": "Asistencial--Frente--Agenda Turnos",
+      "saveAs": "turnosUrl",
+      "waitUntil": "domcontentloaded",
+      "timeoutMs": 60000,
+      "waitMs": 2500
+    },
+    {
+      "type": "wait",
+      "ms": 2500
+    },
+    {
+      "type": "click",
+      "selector": "a[href='https://apisistemasintegrales.sgmsalud.com.co/front/shift_scheduling/create?date=']",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "wait",
+      "ms": 1500
+    },
+    {
+      "type": "selectAutocompleteOption",
+      "inputSelector": "div[role='combobox'][name='header[customer]'] input",
+      "searchText": "prueba",
+      "optionText": "SGM001 - EMPRESA PRUEBAS SGM",
+      "optionSelector": "body .MuiAutocomplete-popper [role='option']",
+      "match": "includes",
+      "timeoutMs": 30000,
+      "waitMs": 1200
+    },
+    {
+      "type": "selectAutocompleteOption",
+      "inputSelector": "div[role='combobox'][name='patient[documentType]'] input",
+      "searchText": "CEDULA",
+      "optionText": "CEDULA CIUDADANIA",
+      "optionSelector": "body .MuiAutocomplete-popper [role='option']",
+      "match": "includes",
+      "timeoutMs": 30000,
+      "waitMs": 1200
+    },
+    {
+      "type": "selectAutocompleteOption",
+      "inputSelector": "div[role='combobox'][name='patient[dni]'] input",
+      "searchText": "10222222",
+      "optionText": "10222222",
+      "optionSelector": "body .MuiAutocomplete-popper [role='option']",
+      "match": "includes",
+      "timeoutMs": 30000,
+      "waitMs": 1200
+    },
+    {
+      "type": "fill",
+      "selector": "input[name='patient[firstname]']",
+      "value": "LOREM IPSUM PRUEBA",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "fill",
+      "selector": "input[name='patient[lastname]']",
+      "value": "DOlOR SIT AMET",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "selectAutocompleteOption",
+      "inputSelector": "div[role='combobox'][name='patient[gender]'] input",
+      "searchText": "F",
+      "optionText": "F",
+      "optionSelector": "body .MuiAutocomplete-popper [role='option']",
+      "match": "exact",
+      "timeoutMs": 30000,
+      "waitMs": 1200
+    },
+    {
+      "type": "selectAutocompleteOption",
+      "inputSelector": "div[role='combobox'][name='patient[genderIdentity]'] input",
+      "searchText": "02",
+      "optionText": "02:Femenino",
+      "optionSelector": "body .MuiAutocomplete-popper [role='option']",
+      "match": "includes",
+      "timeoutMs": 30000,
+      "waitMs": 1200
+    },
+    {
+      "type": "fill",
+      "selector": "input[name='patient[birthDate]']",
+      "value": "1981-01-01",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "selectAutocompleteOption",
+      "inputSelector": "div[role='combobox'][name='patient[bloodType]'] input",
+      "searchText": "O +",
+      "optionText": "O +",
+      "optionSelector": "body .MuiAutocomplete-popper [role='option']",
+      "match": "exact",
+      "timeoutMs": 30000,
+      "waitMs": 1200
+    },
+    {
+      "type": "selectAutocompleteOption",
+      "inputSelector": "div[role='combobox'][name='patient[maritalStatus]'] input",
+      "searchText": "Casado",
+      "optionText": "Casado",
+      "optionSelector": "body .MuiAutocomplete-popper [role='option']",
+      "match": "includes",
+      "timeoutMs": 30000,
+      "waitMs": 1200
+    },
+    {
+      "type": "selectAutocompleteOption",
+      "inputSelector": "div[role='combobox'][name='patient[scholarship]'] input",
+      "searchText": "Bachiller",
+      "optionText": "Bachiller",
+      "optionSelector": "body .MuiAutocomplete-popper [role='option']",
+      "match": "includes",
+      "timeoutMs": 30000,
+      "waitMs": 1200
+    },
+    {
+      "type": "selectAutocompleteOption",
+      "inputSelector": "div[role='combobox'][name='patient[countryOrigin]'] input",
+      "searchText": "Colombia",
+      "optionText": "CO - Colombia",
+      "optionSelector": "body .MuiAutocomplete-popper [role='option']",
+      "match": "includes",
+      "timeoutMs": 30000,
+      "waitMs": 1200
+    },
+    {
+      "type": "fill",
+      "selector": "input[name='patient[birthPlace]']",
+      "value": "BOGOTA",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "fill",
+      "selector": "input[name='patient[placeIssueDoc]']",
+      "value": "REGISTRADURIA NACIONAL DE MEDELLIN",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "selectAutocompleteOption",
+      "inputSelector": "div[role='combobox'][name='patient[neighborhood]'] input",
+      "searchText": "Suba",
+      "optionText": "Suba",
+      "optionSelector": "body .MuiAutocomplete-popper [role='option']",
+      "match": "includes",
+      "timeoutMs": 30000,
+      "waitMs": 1200
+    },
+    {
+      "type": "selectAutocompleteOption",
+      "inputSelector": "div[role='combobox'][name='patient[race]'] input",
+      "searchText": "Blanco",
+      "optionText": "Blanco o caucasico",
+      "optionSelector": "body .MuiAutocomplete-popper [role='option']",
+      "match": "includes",
+      "timeoutMs": 30000,
+      "waitMs": 1200
+    },
+    {
+      "type": "selectAutocompleteOption",
+      "inputSelector": "div[role='combobox'][name='patient[housingType]'] input",
+      "searchText": "Rural",
+      "optionText": "Rural",
+      "optionSelector": "body .MuiAutocomplete-popper [role='option']",
+      "match": "includes",
+      "timeoutMs": 30000,
+      "waitMs": 1200
+    },
+    {
+      "type": "selectAutocompleteOption",
+      "inputSelector": "div[role='combobox'][name='patient[socioeconomicStatus]'] input",
+      "searchText": "4",
+      "optionText": "4. Medio",
+      "optionSelector": "body .MuiAutocomplete-popper [role='option']",
+      "match": "includes",
+      "timeoutMs": 30000,
+      "waitMs": 1200
+    },
+    {
+      "type": "fill",
+      "selector": "input[name='patient[address]']",
+      "value": "CALLE 156",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "fill",
+      "selector": "input[name='patient[phone]']",
+      "value": "6016789876",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "fill",
+      "selector": "input[name='patient[mobileNumber]']",
+      "value": "3204528965",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "fill",
+      "selector": "input[name='patient[email]']",
+      "value": "GRAMIREZ@SGM.COM.CO",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "selectAutocompleteOption",
+      "inputSelector": "div[role='combobox'][name='patient[customerVinculationType]'] input",
+      "searchText": "Contributivo",
+      "optionText": "Contributivo cotizante",
+      "optionSelector": "body .MuiAutocomplete-popper [role='option']",
+      "match": "includes",
+      "timeoutMs": 30000,
+      "waitMs": 1200
+    },
+    {
+      "type": "selectAutocompleteOption",
+      "inputSelector": "div[role='combobox'][name='patient[eps]'] input",
+      "searchText": "AGENDA",
+      "optionText": "AGENDA_MEDICO",
+      "optionSelector": "body .MuiAutocomplete-popper [role='option']",
+      "match": "includes",
+      "timeoutMs": 30000,
+      "waitMs": 1200
+    },
+    {
+      "type": "selectAutocompleteOption",
+      "inputSelector": "div[role='combobox'][name='patient[arl]'] input",
+      "searchText": "AXA",
+      "optionText": "AXA COLPATRIA SEGUROS DE VIDA S.A.",
+      "optionSelector": "body .MuiAutocomplete-popper [role='option']",
+      "match": "includes",
+      "timeoutMs": 30000,
+      "waitMs": 1200
+    },
+    {
+      "type": "selectAutocompleteOption",
+      "inputSelector": "div[role='combobox'][name='patient[retirementFund]'] input",
+      "searchText": "COLPENSIONES",
+      "optionText": "COLPENSIONES",
+      "optionSelector": "body .MuiAutocomplete-popper [role='option']",
+      "match": "includes",
+      "timeoutMs": 30000,
+      "waitMs": 1200
+    },
+    {
+      "type": "click",
+      "selector": "button[type='submit']",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "wait",
+      "ms": 2000
+    },
+    {
+      "type": "waitForSelector",
+      "selector": "#simple-tab-1",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "click",
+      "selector": "#simple-tab-1",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "waitForSelector",
+      "selector": "#simple-tabpanel-1",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "fill",
+      "selector": "input[name='additionalData[jobPosition]']",
+      "value": "conductor",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "selectAutocompleteOption",
+      "inputSelector": "div[role='combobox'][name='additionalData[examType]'] input",
+      "searchText": "RETIRO",
+      "optionText": "RETIRO/EGRESO",
+      "optionSelector": "body .MuiAutocomplete-popper [role='option']",
+      "match": "includes",
+      "timeoutMs": 30000,
+      "waitMs": 1200
+    },
+    {
+      "type": "click",
+      "selector": "svg[data-testid='PhotoCameraIcon']",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "waitForSelector",
+      "selector": "body .MuiDialog-root",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "wait",
+      "ms": 1000
+    },
+    {
+      "type": "clickText",
+      "text": "CAPTURE",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "wait",
+      "ms": 2000
+    },
+    {
+      "type": "waitForSelector",
+      "selector": "xpath=//button[contains(., 'SAVE') or contains(., 'Save')]",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "clickText",
+      "text": "SAVE",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "wait",
+      "ms": 1200
+    },
+    {
+      "type": "click",
+      "selector": "div.MuiCard-root:has(svg[data-testid='BorderColorIcon'])",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "waitForSelector",
+      "selector": "body .MuiDialog-root",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "clickText",
+      "text": "Capturar",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "wait",
+      "ms": 1500
+    },
+    {
+      "type": "drawOnCanvas",
+      "canvasSelector": "body canvas",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "wait",
+      "ms": 800
+    },
+    {
+      "type": "clickText",
+      "text": "CAPTURAR",
+      "timeoutMs": 30000
+    },
+    {
+      "type": "wait",
+      "ms": 1200
+    }
+  ]
+}
