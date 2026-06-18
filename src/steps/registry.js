@@ -17,7 +17,6 @@ import { runClickLocator } from "./clickLocator.js";
 import { runFillLocator } from "./fillLocator.js";
 import { runMenuClickAnyFrame } from './menuClickAnyFrame.js';
 import { runMenuPathAnyFrame } from './menuPathAnyFrame.js';
-import { runGotoMedicosFromMainUrl } from './gotoMedicosFromMainUrl.js';
 import { runGotoMedicosInMainFrame } from './gotoMedicosInMainFrame.js';
 import { runScreenshotSelector } from './screenshotSelector.js';
 import { runGotoMenuRouteFromMainUrl } from './gotoMenuRouteFromMainUrl.js';
@@ -35,7 +34,6 @@ import { runDrawOnCanvas } from "./drawOnCanvas.js";
 import { runSelectAutocompleteFirstOption } from "./selectAutocompleteFirstOption.js";
 import { runToggleAllSwitches } from "./toggleAllSwitches.js";
 import { runSelectAutocompleteFirstOptionByLabel } from "./selectAutocompleteFirstOptionByLabel.js";
-// import { runPressKeys } from "./pressKeys.js";
 
 const handlers = {
   goto: runGoto,
@@ -57,7 +55,6 @@ const handlers = {
   fillLocator: runFillLocator,
   menuClickAnyFrame: runMenuClickAnyFrame,
   menuPathAnyFrame: runMenuPathAnyFrame,
-  gotoMedicosFromMainUrl: runGotoMedicosFromMainUrl,
   gotoMedicosInMainFrame: runGotoMedicosInMainFrame,
   screenshotSelector: runScreenshotSelector,
   gotoMenuRouteFromMainUrl: runGotoMenuRouteFromMainUrl,
@@ -74,7 +71,6 @@ const handlers = {
   selectAutocompleteFirstOption: runSelectAutocompleteFirstOption,
   toggleAllSwitches: runToggleAllSwitches,
   selectAutocompleteFirstOptionByLabel: runSelectAutocompleteFirstOptionByLabel,
-  // pressKeys: runPressKeys
 };
 
 export async function executeStep(step, ctx, i) {

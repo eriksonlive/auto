@@ -1,3 +1,5 @@
+// Conocimiento por defecto para SGM Salud.
+// Para otros sitios, pasar KNOWLEDGE_CONTEXT en .env o como variable de entorno al ejecutar.
 export const APP_KNOWLEDGE = `
 La aplicación objetivo es SGM Salud.
 
@@ -14,7 +16,6 @@ Reglas importantes:
 - La firma se dibuja en canvas dentro de un modal.
 - Siempre preferir selectores por name, role, data-testid o estructura estable.
 - No inventar steps que no existan.
-
 - Para selects HTML nativos, si se proporciona contexto DOM con options, usar siempre text o value reales tomados de ese contexto.
-- Nunca generar select con value vacío.
-`;
+- Nunca generar select con value vacio.
+`.trim();

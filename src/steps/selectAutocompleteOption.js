@@ -1,6 +1,5 @@
 export async function runSelectAutocompleteOption(step, ctx) {
   const { page, logs } = ctx;
-  const outputs = ctx.outputs || {};
 
   const {
     inputSelector,
@@ -31,9 +30,7 @@ export async function runSelectAutocompleteOption(step, ctx) {
   await page.evaluate(
     ({ selector, value }) => {
       const input = document.querySelector(selector);
-      if (!input) {
-        throw new Error(`No se encontró el input: ${selector}`);
-      }
+      if (!input) throw new Error(`No se encontró el input: ${selector}`);
 
       input.focus();
 
@@ -41,13 +38,10 @@ export async function runSelectAutocompleteOption(step, ctx) {
       const descriptor = Object.getOwnPropertyDescriptor(proto, "value");
       const setValue = descriptor && descriptor.set;
 
-      if (!setValue) {
-        throw new Error("No se encontró el setter nativo del input");
-      }
+      if (!setValue) throw new Error("No se encontró el setter nativo del input");
 
       setValue.call(input, "");
       input.dispatchEvent(new InputEvent("input", { bubbles: true, data: "" }));
-
       setValue.call(input, value);
       input.dispatchEvent(new InputEvent("input", { bubbles: true, data: value }));
       input.dispatchEvent(new Event("change", { bubbles: true }));
@@ -64,7 +58,7 @@ export async function runSelectAutocompleteOption(step, ctx) {
   let optionsVisible = false;
 
   try {
-    logs?.push(`[selectAutocompleteOption] esperando opciones globales: ${optionSelector}`);
+    logs?.push(`[selectAutocompleteOption] esperando opciones: ${optionSelector}`);
     await page.waitForSelector(optionSelector, { timeout: 4000 });
     optionsVisible = true;
   } catch (_) {
@@ -72,14 +66,10 @@ export async function runSelectAutocompleteOption(step, ctx) {
   }
 
   if (!optionsVisible) {
-    logs?.push("[selectAutocompleteOption] fallback: focus + ArrowDown por evaluate");
-
+    logs?.push("[selectAutocompleteOption] fallback: focus + ArrowDown");
     await page.evaluate((selector) => {
       const input = document.querySelector(selector);
-      if (!input) {
-        throw new Error(`No se encontró el input para fallback: ${selector}`);
-      }
-
+      if (!input) throw new Error(`No se encontró el input para fallback: ${selector}`);
       input.focus();
       input.dispatchEvent(new KeyboardEvent("keydown", { bubbles: true, key: "ArrowDown" }));
       input.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true, key: "ArrowDown" }));
@@ -94,9 +84,7 @@ export async function runSelectAutocompleteOption(step, ctx) {
   }
 
   if (!optionsVisible) {
-    throw new Error(
-      `selectAutocompleteOption: el autocomplete no mostró opciones para "${textToSearch}".`
-    );
+    throw new Error(`selectAutocompleteOption: el autocomplete no mostró opciones para "${textToSearch}".`);
   }
 
   const options = page.locator(optionSelector);
@@ -116,24 +104,17 @@ export async function runSelectAutocompleteOption(step, ctx) {
 
     logs?.push(`[selectAutocompleteOption] opción[${i}]: ${text}`);
 
-    const isMatch =
-      match === "exact"
-        ? normalized === expected
-        : normalized.includes(expected);
+    const isMatch = match === "exact" ? normalized === expected : normalized.includes(expected);
 
     if (isMatch) {
       logs?.push(`[selectAutocompleteOption] seleccionando opción[${i}]: ${text}`);
       await option.click();
 
       if (saveAs) {
-        outputs[saveAs] = text;
-        ctx.outputs = outputs;
+        ctx.result.outputs[saveAs] = text;
       }
 
-      return {
-        ok: true,
-        selectedText: text
-      };
+      return { ok: true, selectedText: text };
     }
   }
 

@@ -1,14 +1,14 @@
 import "dotenv/config";
 import fs from "node:fs/promises";
 import path from "node:path";
-import { generateLlmText } from "./llm.js";
-import { extractJson } from "./utils.js";
-import { validateCaseOrThrow } from "./validate-case.js";
-import { normalizeCase } from "./normalize-case.js";
-import { buildGeneratePrompt } from "./prompts/generate.js";
-import { STEP_CATALOG } from "./catalog.js";
-import { APP_KNOWLEDGE } from "./knowledge.js";
-import { EXAMPLES } from "./examples.js";
+import { generateLlmText } from "../src/ai/llm.js";
+import { extractJson } from "../src/ai/utils.js";
+import { validateCaseOrThrow } from "../src/ai/validate-case.js";
+import { normalizeCase } from "../src/ai/normalize-case.js";
+import { buildGeneratePrompt } from "../src/ai/prompts/generate.js";
+import { STEP_CATALOG } from "../src/ai/catalog.js";
+import { APP_KNOWLEDGE } from "../src/ai/knowledge.js";
+import { EXAMPLES } from "../src/ai/examples.js";
 
 async function main() {
   const prompt = process.argv.slice(2).join(" ").trim();
@@ -17,10 +17,11 @@ async function main() {
     throw new Error("Debes enviar un prompt");
   }
 
+  const knowledgeOverride = process.env.KNOWLEDGE_CONTEXT;
   const { system, user } = buildGeneratePrompt({
     userRequest: prompt,
     catalog: STEP_CATALOG,
-    knowledge: APP_KNOWLEDGE,
+    knowledge: knowledgeOverride || APP_KNOWLEDGE,
     examples: EXAMPLES
   });
 

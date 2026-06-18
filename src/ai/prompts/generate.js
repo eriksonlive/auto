@@ -32,6 +32,10 @@ Reglas:
 - Si una pantalla depende del estado anterior, usa wait, waitForSelector o submit intermedio.
 - Usa selectores estables por name, role, data-testid o estructura conocida.
 - Si no sabes un selector exacto, usa el más estable posible y mantén el caso ejecutable.
+- Usa únicamente los steps del catálogo actual.
+- No uses steps del runner que no estén listados en el catálogo.
+- Si una acción no puede resolverse con el catálogo actual, construye la mejor aproximación usando solo steps permitidos.
+- No inventes nuevos types.
 
 Conocimiento del sistema:
 ${knowledge}

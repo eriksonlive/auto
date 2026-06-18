@@ -1,6 +1,6 @@
 import "dotenv/config";
-import { generateLlmText } from "./llm.js";
-import { extractJson } from "./utils.js";
+import { generateLlmText } from "../src/ai/llm.js";
+import { extractJson } from "../src/ai/utils.js";
 
 async function main() {
   const system = "Responde solo JSON válido.";

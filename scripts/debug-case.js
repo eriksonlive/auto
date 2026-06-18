@@ -1,10 +1,10 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { STEP_CATALOG } from "./catalog.js";
-import { APP_KNOWLEDGE } from "./knowledge.js";
+import { STEP_CATALOG } from "../src/ai/catalog.js";
+import { APP_KNOWLEDGE } from "../src/ai/knowledge.js";
 import { buildDebugPrompt } from "./prompts/debug.js";
-import { callLlm } from "./llm.js";
-import { DebugResponseSchema } from "./schema.js";
+import { callLlm } from "../src/ai/llm.js";
+import { DebugResponseSchema } from "../src/ai/schema.js";
 
 function extractJson(text) {
   const start = text.indexOf("{");
