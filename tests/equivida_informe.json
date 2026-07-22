@@ -1,0 +1,28 @@
+{
+  "name": "Equivida - Informe Historia Ocupacional Particulares Dic 2025",
+  "url": "https://equivida.isismaweb.com/app/asistencial/sismaweb/sisma.php",
+  "steps": [
+    {"type": "loadStorage", "file": "sessions/equivida.json"},
+    {"type": "wait", "ms": 2000},
+    {"type": "select", "selector": "form select:first-of-type", "text": "VILLAVICENCIO"},
+    {"type": "wait", "ms": 4000},
+    {"type": "selectNth", "index": 1, "text": "CONSULTORIO 101"},
+    {"type": "wait", "ms": 1000},
+    {"type": "click", "selector": "form div button"},
+    {"type": "wait", "ms": 5000},
+
+    {
+      "type": "httpDownload",
+      "url": "https://equivida.isismaweb.com/app/asistencial/sismaweb/reportes/html/excel/recurso/historia4ocupacional.php",
+      "params": {
+        "contrato": "1",
+        "remisor": "",
+        "cliente": "",
+        "fechaini": "2025/12/01",
+        "fechafin": "2025/12/31"
+      },
+      "saveAs": "historia_ocupacional_dic2025.xls",
+      "timeoutMs": 60000
+    }
+  ]
+}

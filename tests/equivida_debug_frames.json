@@ -1,0 +1,21 @@
+{
+  "name": "Equivida - Debug frames formulario",
+  "url": "https://equivida.isismaweb.com/app/asistencial/sismaweb/sisma.php",
+  "steps": [
+    { "type": "loadStorage", "file": "sessions/equivida.json" },
+    { "type": "wait", "ms": 2000 },
+    { "type": "select", "selector": "form select:first-of-type", "text": "VILLAVICENCIO" },
+    { "type": "wait", "ms": 3000 },
+    { "type": "act", "instruction": "Selecciona el consultorio CONSULTORIO 101 en el dropdown de consultorio" },
+    { "type": "wait", "ms": 1000 },
+    { "type": "act", "instruction": "Haz clic en el boton ACCEDER" },
+    { "type": "wait", "ms": 5000 },
+    { "type": "act", "instruction": "Haz clic en el menu Informes" },
+    { "type": "wait", "ms": 2000 },
+    { "type": "act", "instruction": "Haz clic en Historias Clinicas dentro del menu lateral izquierdo" },
+    { "type": "wait", "ms": 3000 },
+    { "type": "act", "instruction": "Haz clic en Historia Ocupacional de la lista" },
+    { "type": "wait", "ms": 4000 },
+    { "type": "debugFrames", "saveAs": "frames_formulario" }
+  ]
+}

@@ -9,6 +9,7 @@
     "@browserbasehq/stagehand": "^3.0.8",
     "dotenv": "^17.2.3",
     "playwright": "^1.57.0",
+    "xlsx": "^0.18.5",
     "zod": "^4.3.6"
   }
 }

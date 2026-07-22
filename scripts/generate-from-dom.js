@@ -3,7 +3,7 @@ import fs from "node:fs/promises";
 import { generateLlmText } from "../src/ai/llm.js";
 import { extractJson } from "../src/ai/utils.js";
 import { STEP_CATALOG } from "../src/ai/catalog.js";
-import { APP_KNOWLEDGE } from "../src/ai/knowledge.js";
+import { getKnowledge } from "../src/ai/knowledge.js";
 import { validateCaseOrThrow } from "../src/ai/validate-case.js";
 import { normalizeCase } from "../src/ai/normalize-case.js";
 import { EXAMPLES } from "../src/ai/examples.js";
@@ -34,11 +34,10 @@ Instrucciones adicionales:
 - Prefiere los selectors exactos que ya aparezcan en el contexto.
 `.trim();
 
-  const knowledgeOverride = process.env.KNOWLEDGE_CONTEXT;
   const { system, user } = buildGeneratePrompt({
     userRequest: domAwareRequest,
     catalog: STEP_CATALOG,
-    knowledge: knowledgeOverride || APP_KNOWLEDGE,
+    knowledge: getKnowledge(),
     examples: EXAMPLES
   });
 

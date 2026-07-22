@@ -1,5 +1,4 @@
 import path from 'path';
-import { exportDomContext } from "./ai/export-dom-context.js";
 import { readJson, writeJson, ensureDir } from './lib/fs.js';
 import { slugFromUrl } from './lib/slug.js';
 import { nowStamp } from './utils/time.js';
@@ -201,29 +200,6 @@ async function runTest(jsonPath) {
   };
 }
 
-async function captureDomSnapshotSafe({ page, runDir, stepIndex, stepType, phase, logs = [] }) {
-  try {
-    const domDir = path.join(runDir, "dom");
-    const fileName = `${String(stepIndex).padStart(3, "0")}-${phase}-${stepType}.json`;
-    const outPath = path.join(domDir, fileName);
-
-    const result = await exportDomContext({
-      page,
-      outPath,
-      extra: {
-        stepIndex,
-        stepType,
-        phase
-      }
-    });
-
-    logs.push(`[dom] saved ${result.outPath}`);
-    return result.outPath;
-  } catch (err) {
-    logs.push(`[dom] error saving DOM snapshot: ${err.message}`);
-    return null;
-  }
-}
 const jsonPath = process.argv[2];
 
 if (!jsonPath) {

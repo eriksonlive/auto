@@ -33,7 +33,17 @@ import { runSelectDownshiftMenuOption } from "./selectDownshiftMenuOption.js";
 import { runDrawOnCanvas } from "./drawOnCanvas.js";
 import { runSelectAutocompleteFirstOption } from "./selectAutocompleteFirstOption.js";
 import { runToggleAllSwitches } from "./toggleAllSwitches.js";
+import { runLoadStorage } from "./loadStorage.js";
+import { runDownloadHistoriaOcupacional } from './downloadHistoriaOcupacional.js';
+import { runHttpDownload } from './httpDownload.js';
+import { runSubmitFormDownload } from './submitFormDownload.js';
+import { runClickFrameAndDownload } from './clickFrameAndDownload.js';
+import { runFillFrame } from './fillFrame.js';
+import { runFindFormFrame } from './findFormFrame.js';
+import { runClickFrame } from './clickFrame.js';
+import { runSelectNth } from './selectNth.js';
 import { runSelectAutocompleteFirstOptionByLabel } from "./selectAutocompleteFirstOptionByLabel.js";
+import { runClickAndDownload } from "./clickAndDownload.js";
 
 const handlers = {
   goto: runGoto,
@@ -70,7 +80,17 @@ const handlers = {
   drawOnCanvas: runDrawOnCanvas,
   selectAutocompleteFirstOption: runSelectAutocompleteFirstOption,
   toggleAllSwitches: runToggleAllSwitches,
+  loadStorage: runLoadStorage,
+  selectNth: runSelectNth,
+  clickFrame: runClickFrame,
+  findFormFrame: runFindFormFrame,
+  fillFrame: runFillFrame,
+  clickFrameAndDownload: runClickFrameAndDownload,
+  submitFormDownload: runSubmitFormDownload,
+  httpDownload: runHttpDownload,
+  downloadHistoriaOcupacional: runDownloadHistoriaOcupacional,
   selectAutocompleteFirstOptionByLabel: runSelectAutocompleteFirstOptionByLabel,
+  clickAndDownload: runClickAndDownload,
 };
 
 export async function executeStep(step, ctx, i) {

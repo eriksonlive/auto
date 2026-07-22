@@ -7,7 +7,7 @@ import { validateCaseOrThrow } from "../src/ai/validate-case.js";
 import { normalizeCase } from "../src/ai/normalize-case.js";
 import { buildGeneratePrompt } from "../src/ai/prompts/generate.js";
 import { STEP_CATALOG } from "../src/ai/catalog.js";
-import { APP_KNOWLEDGE } from "../src/ai/knowledge.js";
+import { getKnowledge } from "../src/ai/knowledge.js";
 import { EXAMPLES } from "../src/ai/examples.js";
 
 async function main() {
@@ -17,11 +17,10 @@ async function main() {
     throw new Error("Debes enviar un prompt");
   }
 
-  const knowledgeOverride = process.env.KNOWLEDGE_CONTEXT;
   const { system, user } = buildGeneratePrompt({
     userRequest: prompt,
     catalog: STEP_CATALOG,
-    knowledge: knowledgeOverride || APP_KNOWLEDGE,
+    knowledge: getKnowledge(),
     examples: EXAMPLES
   });
 

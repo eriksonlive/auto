@@ -65,7 +65,6 @@ Recuerda:
 - No omitas campos obligatorios del catálogo.
 - No uses types fuera del catálogo.
 
-- Si necesitas navegar después del login legacy, usa getFrameUrl y luego gotoFromOutput.
     `.trim()
   };
 }

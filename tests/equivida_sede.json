@@ -1,0 +1,33 @@
+{
+  "name": "Equivida - Seleccionar Sede y Consultorio",
+  "url": "https://equivida.isismaweb.com/app/asistencial/sismaweb/sisma.php",
+  "steps": [
+    { "type": "loadStorage", "file": "sessions/equivida.json" },
+    { "type": "wait", "ms": 2000 },
+    { "type": "screenshot", "name": "01-seleccion-sede" },
+    {
+      "type": "select",
+      "selector": "form select:first-of-type",
+      "text": "VILLAVICENCIO"
+    },
+    { "type": "wait", "ms": 3000 },
+    { "type": "screenshot", "name": "02-consultorio-visible" },
+    {
+      "type": "act",
+      "instruction": "Selecciona el consultorio CONSULTORIO 101 en el dropdown de consultorio"
+    },
+    { "type": "wait", "ms": 1000 },
+    { "type": "screenshot", "name": "03-consultorio-seleccionado" },
+    {
+      "type": "act",
+      "instruction": "Haz clic en el boton ACCEDER"
+    },
+    { "type": "wait", "ms": 5000 },
+    { "type": "screenshot", "name": "04-post-acceso" },
+    {
+      "type": "debugDom",
+      "selector": "body",
+      "name": "dom-app"
+    }
+  ]
+}
