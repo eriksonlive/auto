@@ -17,7 +17,6 @@ import { runClickLocator } from "./clickLocator.js";
 import { runFillLocator } from "./fillLocator.js";
 import { runMenuClickAnyFrame } from './menuClickAnyFrame.js';
 import { runMenuPathAnyFrame } from './menuPathAnyFrame.js';
-import { runGotoMedicosFromMainUrl } from './gotoMedicosFromMainUrl.js';
 import { runGotoMedicosInMainFrame } from './gotoMedicosInMainFrame.js';
 import { runScreenshotSelector } from './screenshotSelector.js';
 import { runGotoMenuRouteFromMainUrl } from './gotoMenuRouteFromMainUrl.js';
@@ -34,8 +33,17 @@ import { runSelectDownshiftMenuOption } from "./selectDownshiftMenuOption.js";
 import { runDrawOnCanvas } from "./drawOnCanvas.js";
 import { runSelectAutocompleteFirstOption } from "./selectAutocompleteFirstOption.js";
 import { runToggleAllSwitches } from "./toggleAllSwitches.js";
+import { runLoadStorage } from "./loadStorage.js";
+import { runDownloadHistoriaOcupacional } from './downloadHistoriaOcupacional.js';
+import { runHttpDownload } from './httpDownload.js';
+import { runSubmitFormDownload } from './submitFormDownload.js';
+import { runClickFrameAndDownload } from './clickFrameAndDownload.js';
+import { runFillFrame } from './fillFrame.js';
+import { runFindFormFrame } from './findFormFrame.js';
+import { runClickFrame } from './clickFrame.js';
+import { runSelectNth } from './selectNth.js';
 import { runSelectAutocompleteFirstOptionByLabel } from "./selectAutocompleteFirstOptionByLabel.js";
-// import { runPressKeys } from "./pressKeys.js";
+import { runClickAndDownload } from "./clickAndDownload.js";
 
 const handlers = {
   goto: runGoto,
@@ -57,7 +65,6 @@ const handlers = {
   fillLocator: runFillLocator,
   menuClickAnyFrame: runMenuClickAnyFrame,
   menuPathAnyFrame: runMenuPathAnyFrame,
-  gotoMedicosFromMainUrl: runGotoMedicosFromMainUrl,
   gotoMedicosInMainFrame: runGotoMedicosInMainFrame,
   screenshotSelector: runScreenshotSelector,
   gotoMenuRouteFromMainUrl: runGotoMenuRouteFromMainUrl,
@@ -73,8 +80,17 @@ const handlers = {
   drawOnCanvas: runDrawOnCanvas,
   selectAutocompleteFirstOption: runSelectAutocompleteFirstOption,
   toggleAllSwitches: runToggleAllSwitches,
+  loadStorage: runLoadStorage,
+  selectNth: runSelectNth,
+  clickFrame: runClickFrame,
+  findFormFrame: runFindFormFrame,
+  fillFrame: runFillFrame,
+  clickFrameAndDownload: runClickFrameAndDownload,
+  submitFormDownload: runSubmitFormDownload,
+  httpDownload: runHttpDownload,
+  downloadHistoriaOcupacional: runDownloadHistoriaOcupacional,
   selectAutocompleteFirstOptionByLabel: runSelectAutocompleteFirstOptionByLabel,
-  // pressKeys: runPressKeys
+  clickAndDownload: runClickAndDownload,
 };
 
 export async function executeStep(step, ctx, i) {

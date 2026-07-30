@@ -1,0 +1,51 @@
+{
+  "storageUrl": "https://equivida.isismaweb.com/app/asistencial/sismaweb/sisma.php",
+  "cookies": [
+    {
+      "name": "_GRECAPTCHA",
+      "value": "09AKhCRwiegWob6zpANKN7mqwe31eGQDdlQrJdU2FnVAQXAkIfyS-MVkXSoqzGoPMm1mv_ik4EiZWBkEountbWdxg",
+      "domain": "www.google.com",
+      "path": "/recaptcha",
+      "expires": 1800960718.672502,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "PHPSESSID",
+      "value": "10v6ceqtjgai6rt06p1c7vkj9e",
+      "domain": "equivida.isismaweb.com",
+      "path": "/",
+      "expires": 1785451758.620489,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga",
+      "value": "GA1.1.641124077.1785408560",
+      "domain": ".isismaweb.com",
+      "path": "/",
+      "expires": 1819968657.319652,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga_VHWRPVS30R",
+      "value": "GS2.1.s1785408559$o1$g1$t1785408720$j56$l0$h0",
+      "domain": ".isismaweb.com",
+      "path": "/",
+      "expires": 1819968720.198503,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "localStorage": {
+    "hasRipsClienteServidor": "off",
+    "isRipsEnabled": "on",
+    "_grecaptcha": "09AKhCRwicOr2YhZoOiV88jb9OnG2sfsCi99f_YdlMd1KzNxDkGYKFJAHWm1t1AlrnofsSSs-HbpYXwAJpVa0d9POvf2ADBHHRuJwOWUhEJKhHsLbvh1rAzmXWisCaNI16",
+    "isTermsChecked": "true"
+  }
+}

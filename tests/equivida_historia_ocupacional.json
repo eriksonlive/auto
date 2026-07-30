@@ -1,0 +1,20 @@
+{
+  "name": "Equivida - Descargar Historia Ocupacional por Cedula",
+  "url": "https://equivida.isismaweb.com/app/asistencial/sismaweb/sisma.php",
+  "steps": [
+    {"type": "loadStorage", "file": "sessions/equivida.json"},
+    {"type": "wait", "ms": 2000},
+    {"type": "select", "selector": "form select:first-of-type", "text": "VILLAVICENCIO"},
+    {"type": "wait", "ms": 4000},
+    {"type": "selectNth", "index": 1, "text": "CONSULTORIO 101"},
+    {"type": "wait", "ms": 1000},
+    {"type": "click", "selector": "form div button"},
+    {"type": "wait", "ms": 3000},
+
+    {
+      "type": "downloadHistoriaOcupacional",
+      "cedula": "80132454",
+      "saveAs": "historia_ocupacional_80132454.html"
+    }
+  ]
+}

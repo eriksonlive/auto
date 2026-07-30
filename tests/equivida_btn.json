@@ -1,0 +1,9 @@
+{
+  "name": "Buscar boton Equivida",
+  "url": "https://equivida.isismaweb.com/app/asistencial/",
+  "steps": [
+    { "type": "goto", "waitUntil": "load", "timeoutMs": 60000 },
+    { "type": "wait", "ms": 2000 },
+    { "type": "extract", "selector": "button, input[type='submit'], a.btn", "saveAs": "botones" }
+  ]
+}

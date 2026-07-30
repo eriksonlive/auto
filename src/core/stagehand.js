@@ -12,6 +12,7 @@ export function createStagehand(test) {
       headless: test.stagehand?.headless ?? true,
       args: [
         "--no-sandbox",
+        "--ignore-certificate-errors",
         "--disable-setuid-sandbox",
         "--disable-dev-shm-usage",
         "--disable-gpu",

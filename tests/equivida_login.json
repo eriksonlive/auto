@@ -1,0 +1,23 @@
+{
+  "name": "Login Equivida (sesion guardada)",
+  "url": "https://equivida.isismaweb.com/app/asistencial/sismaweb/sisma.php",
+  "steps": [
+    {
+      "type": "loadStorage",
+      "file": "sessions/equivida.json"
+    },
+    {
+      "type": "wait",
+      "ms": 3000
+    },
+    {
+      "type": "screenshot",
+      "name": "01-post-login"
+    },
+    {
+      "type": "debugDom",
+      "selector": "body",
+      "name": "post-login-dom"
+    }
+  ]
+}

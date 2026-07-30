@@ -1,5 +1,5 @@
 {
-  "name": "Login y seleccion de sede anidada",
+  "name": "Login y selección de sede con pantallazo del logo",
   "url": "https://sistemasintegrales.sgmsalud.com.co/",
   "steps": [
     {
@@ -41,38 +41,20 @@
       "saveAs": "mainUrl"
     },
     {
-      "waitUntil": "load",
-      "timeoutMs": 60000,
-      "type": "gotoFromOutput",
-      "key": "mainUrl"
-    },
-    {
       "timeoutMs": 30000,
       "type": "waitForSelector",
-      "selector": "select[name='department']"
+      "selector": "img[alt='SGM Salud']"
     },
     {
       "timeoutMs": 30000,
-      "type": "select",
-      "selector": "select[name='department']",
-      "value": "1"
+      "type": "screenshotSelector",
+      "selector": "img[alt='SGM Salud']",
+      "name": "Logo SGM Salud"
     },
     {
       "timeoutMs": 30000,
-      "type": "select",
-      "selector": "select[name='sala']",
-      "value": "1"
-    },
-    {
-      "timeoutMs": 30000,
-      "type": "select",
-      "selector": "select[name='position']",
-      "value": "1"
-    },
-    {
-      "timeoutMs": 30000,
-      "type": "clickButtonByText",
-      "text": "Enviar"
+      "type": "click",
+      "selector": "button[title='Escoger sede']"
     }
   ]
 }

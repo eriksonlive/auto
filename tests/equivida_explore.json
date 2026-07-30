@@ -1,0 +1,25 @@
+{
+  "name": "Equivida - Explorar flujo buscar paciente",
+  "url": "https://equivida.isismaweb.com/app/asistencial/sismaweb/sisma.php",
+  "steps": [
+    {"type": "loadStorage", "file": "sessions/equivida.json"},
+    {"type": "wait", "ms": 2000},
+    {"type": "select", "selector": "form select:first-of-type", "text": "VILLAVICENCIO"},
+    {"type": "wait", "ms": 4000},
+    {"type": "selectNth", "index": 1, "text": "CONSULTORIO 101"},
+    {"type": "wait", "ms": 1000},
+    {"type": "click", "selector": "form div button"},
+    {"type": "wait", "ms": 5000},
+    {"type": "screenshot", "name": "00-post-login"},
+    {"type": "debugFrames"},
+    {"type": "clickFrame", "frameIndex": 1, "linkText": "Historia"},
+    {"type": "wait", "ms": 2000},
+    {"type": "screenshot", "name": "01-menu-historia"},
+    {"type": "debugFrames"},
+    {"type": "clickFrame", "frameIndex": 2, "linkText": "Buscar Paciente"},
+    {"type": "wait", "ms": 3000},
+    {"type": "screenshot", "name": "02-buscar-paciente"},
+    {"type": "debugFrames"},
+    {"type": "findFormFrame"}
+  ]
+}
